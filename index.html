@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>do</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" /> -->
+    <!--  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+
+   
+    <link rel="stylesheet" href="./style.css">
+    
+    <title></title>
+</head>
+
+<body>
+
+    <header class="header">
+
+
+        <div class="menu container">
+            <a href="#" class="logo">Comidas</a>
+            <input type="checkbox" id="menu">
+            <label for="menu"><img src="./Multimedia/menu.png" class="menu-icono" alt="menu"></label>
+            <nav class="navbar">
+
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Reservas</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div>
+
+                <ul>
+
+                    <li class="submenu">
+                        <img src="./Multimedia/cart.png" id="img-carrito" alt="">
+                        <div id="carrito">
+
+                            <table id="lista-carrito">
+                                <thead>
+                                    <tr>
+                                        <th>Imagen</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th></th>
+
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                            <a href="#" id="vaciar-carrito" class="btn-2">Vaciar carrito</a>
+
+                        </div>
+
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        </div>
+
+        <div class="header-content container">
+
+            <h1>Comidas rapidas</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem quam dignissimos sunt quisquam
+                totam eos sit, magni modi, perspiciatis necessitatibus hic ad! Esse ad cupiditate voluptatum error
+                labore debitis libero.
+            </p>
+            <div class="botons">
+                <a href="#" class="btn-1">Mas informacion</a>
+                <a href="#" class="btn-1">Menu</a>
+            </div>
+
+            <div class="socials-1">
+                <img src="./Multimedia/s1.svg" alt="">
+                <img src="./Multimedia/s2.svg" alt="">
+                <img src="./Multimedia/s3.svg" alt="">
+            </div>
+
+                <a href="#">
+                    <img class="arrow" src="./Multimedia/arrow.svg" alt="">
+                </a>
+                          
+        </div>
+
+
+    </header>
+
+ 
+
+        <section class="platos container">
+            <div class="platos-1">
+                <h3>Las mejores comidas rapidas para ti</h3>
+                <hr>
+                <p>Platillos</p>
+            </div>
+                <div class="platos-2">
+                    <h2>Platillos </h2>
+                </div>        
+
+        </section>
+
+
+        <section class="platillos container" id="lista">
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="platillo">
+                            <h3>Hamburguesa Glotona de Temporada</h3>
+                            <p class="precio">$56.900</p>
+                            <img src="./Multimedia/glotona.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi velit dolor consectetur
+                                blanditiis illum nostrum ipsam autem nemo assumenda? Quis accusamus voluptas amet iste
+                                assumenda quisquam voluptates enim magni eligendi!
+                            </p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="1">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="platillo">
+                            <h3>Hamburguesa Mr. Doritos</h3>
+                            <p class="precio">$20.500</p>
+                            <img src="./Multimedia/Doritos.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi velit dolor consectetur
+                                blanditiis illum nostrum ipsam autem nemo assumenda? Quis accusamus voluptas amet iste
+                                assumenda quisquam voluptates enim magni eligendi!</p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="2">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="platillo">
+                            <h3>Hamburguesa Pig</h3>
+                            <p class="precio">$40.900</p>
+                            <img src="./Multimedia/big premium.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi velit dolor consectetur
+                                blanditiis illum nostrum ipsam autem nemo assumenda? Quis accusamus voluptas amet iste
+                                assumenda quisquam voluptates enim magni eligendi!</p>
+                            <a href="#" class="agregar-carrito btn-2" data-id="3">Agregar al carrito</a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+    
+            </div>         
+           
+        </section>
+
+
+        <section class="platos container">
+
+            <div class="platos-2">
+                <h2>Platillos </h2>
+            </div> 
+            <div class="platos-1">
+                <h3>Las mejores comidas rapidas para ti</h3>
+                <hr>
+                <p>Platillos</p>
+            </div>
+                       
+
+        </section>
+
+   
+
+
+    <footer class="footer container">
+        <div class="links">
+            <div class="link">
+                <h3>Redes</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, tempore nihil id non ipsa, porro
+                    reiciendis saepe perferendis beatae optio quos veritatis exercitationem quidem ipsum officia dolorem
+                    laudantium nesciunt ut.
+                </p>
+                <div class="socials-2">
+                   <img src="./Multimedia/s1.svg" alt="">
+                   <img src="./Multimedia/s2.svg" alt="">
+                   <img src="./Multimedia/s3.svg" alt="">
+
+                </div>
+            </div>
+
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+
+                </ul>
+            </div>
+
+            <div class="link">
+                <h3>Lorem</h3>
+                <ul>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+                    <li>LOREM</li>
+
+                </ul>
+            </div>
+
+            <div class="link">
+                <h3>Contacto</h3>
+               <form >
+                <input type="text" placeholder="Nombre" class="inp">
+                <input type="email" placeholder="Email" class="inp">
+                <textarea class="inp"></textarea>
+                <input class="btn-4" type="submit" value="Enviar">
+               </form>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!--    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"></script>
+
+ -->
+ <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"> </script>
+
+
+</body>
+
+</html>
