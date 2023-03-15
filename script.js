@@ -1,4 +1,3 @@
-
 var swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
     spaceBetween: 30, 
@@ -41,19 +40,19 @@ const vaciarCarritoBtn = document.getElementById('vaciar-carrito');
 
 cargarEventListeners();
 
-function cargarEventListeners() {
-
-elementos.addEventListener('click',comprarElemento);
-//elementos2.addEventListener('clic',comprarElemento);
-
-carrito.addEventListener('click',eliminarElemento);
+function cargarEventListeners(){
 
 
-vaciarCarritoBtn.addEventListener('click ',vaciarCarrito);
+    elementos.addEventListener('click', comprarElemento);
+    //elementos2.addEventListener('click', comprarElemento);
 
+    carrito.addEventListener('click', eliminarElemento);
 
-document.addEventListener('DOMContentLoaded', leerLocalStorage);
+    vaciarCarritoBtn.addEventListener('click', vaciarCarrito);
 }
+
+
+
 
 function comprarElemento(e) {
 
@@ -125,11 +124,12 @@ function eliminarElemento(e) {
 
 e.preventDefault();
 
-let elemento, elementoID;
+let elemento, elementoId;
 
 if(e.target.classList.contains('borrar')) {
 
-e.target.parentElement.parentElement;
+e.target.parentElement.parentElement.remove();
+elemento = e.target.parentElement.parentElement;
 elementoId = elemento.querySelector('a').getAttribute('data-id');  
 
 }
@@ -142,7 +142,7 @@ function vaciarCarrito() {
 
     while(lista.firstChild){
 
-        lista.removeChild(lista.firstChild)
+        lista.removeChild(lista.firstChild);
     }
 
     vaciarLocalStorage();
@@ -223,8 +223,12 @@ elementosLS.forEach(function(elemento)
 
 }
 
-function eliminarElementoLocalStorage(){
+function eliminarElementoLocalStorage(elemento){
 
+
+    let elementosLS;
+
+    elementosLS = obtenerelementosLocalStorage();
     elementosLS.forEach(function(elementosLS,index){
 
         if(elementosLS.id === elemento) {
