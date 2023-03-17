@@ -522,6 +522,11 @@ color: #DFDDE0;
     .socials-2 {
         margin-bottom: 15px ;
     }
+    .submenu:hover #carrito  {
+
+        min-width: 280px;
+        
+    }
     
 
 
