@@ -215,3 +215,42 @@ valorTotal.innerText = `$${total}00`;
 countProducts.innerText = totalOfProducts;
 
 };
+
+//FUNCION VALIDAR FORMULARIO
+
+
+document.querySelector('#form').addEventListener('submit',(e)=>{
+
+    e.preventDefault();
+const nombre = document.getElementById('name').value
+const email = document.getElementById('email').value
+const area = document.getElementById('area').value
+const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+const formu = document.getElementById('form')
+
+/*
+e.target.elements.name.value = "";
+e.target.elements.email.value = "";
+e.target.elements.area.value = "";
+*/ 
+if(nombre.length === 0) {
+
+alert("por favor ingrese un nombre");
+document.getElementById('name').focus()
+}
+else if (!regexEmail.test(email)) {
+
+alert("el email no es valido")
+document.getElementById('email').focus()
+
+} else if (area.length === 0) {
+
+    alert("por favor ingrese su mensaje")
+    document.getElementById('area').focus()
+} else {
+
+    alert("datos enviados")
+    formu.reset();
+}
+
+});
