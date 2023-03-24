@@ -216,9 +216,6 @@ const showHTML = () => {
 
 };
 
-//FUNCION VALIDAR FORMULARIO DE CONTACTO
-
-
 document.querySelector('#form').addEventListener('submit', (e) => {
 
     e.preventDefault();
@@ -226,7 +223,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     const email = document.getElementById('email').value
     const area = document.getElementById('area').value
     const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-    const formu = document.getElementById('form')
+    const formu_c = document.getElementById('form')
     const textov = /^[A-Z]+$/i
     /*
     e.target.elements.name.value = "";
@@ -234,26 +231,50 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     e.target.elements.area.value = "";
     */
     if (nombre.length === 0) {
-
-        alert("por favor ingrese un nombre");
+        Swal.fire({
+            imageUrl: './multimedia/warning-icon.jpg',
+            icon: '' ,
+            title: 'Oops...',
+            text: 'Por favor ingrese un nombre',
+        })
+   
         document.getElementById('name').focus()
     } else if (!textov.test(nombre)) {
-
-        alert("por favor ingrese un nombre sin numeros");
+        Swal.fire({
+            imageUrl: './multimedia/warning-icon.jpg',
+            icon: '' ,
+            title: 'Oops...',
+            text: 'Por favor ingrese un nombre sin numeros',
+        })
+        document.getElementById('name').focus()
     }
     else if (!regexEmail.test(email)) {
-
-        alert("el email no es valido")
+        Swal.fire({
+            imageUrl: './multimedia/warning-icon.jpg',
+            icon: '' ,
+            title: 'Oops...',
+            text: 'El email no es valido',
+        })
+        
         document.getElementById('email').focus()
 
     } else if (area.length === 0) {
-
-        alert("por favor ingrese su mensaje")
+        Swal.fire({
+            imageUrl: './multimedia/warning-icon.jpg',
+            icon: '' ,
+            title: 'Oops...',
+            text: 'Por favor ingrese su mensaje',
+        })
+       
         document.getElementById('area').focus()
     } else {
-
-        alert("datos enviados")
-        formu.reset();
+        
+        Swal.fire({
+            imageUrl: './multimedia/Exitoso.png',
+          
+            text: 'Datos enviados',
+        })
+        formu_c.reset();
     }
 
 });
