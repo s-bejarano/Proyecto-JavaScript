@@ -1,5 +1,5 @@
 Swal.fire({
-    imageUrl: './multimedia/reservas.png',
+    imageUrl: './Multimedia/reservas.png',
     icon: '' ,
     title: 'Tipos de mesas para serserva',
     text: 'Recuerde esta imagen al momento de su eleccion',
@@ -26,7 +26,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
        // alert("por favor ingrese un nombre");
         
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Ingrese un nombre',
@@ -35,7 +35,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
         document.getElementById('nombre-r').focus()
     } else if (!textov.test(nombre_r)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Ingrese el nombre sin numeros',
@@ -44,7 +44,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
     }
     else if (!regexEmail.test(email_r)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'El email no es valido',
@@ -54,7 +54,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
 
     } else if (numero_r.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese el numero',
@@ -62,7 +62,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
 
     } else if (!numer.test(numero_r)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese solo numeros',
@@ -71,7 +71,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
         document.getElementById('numero-r').focus()
     } else if (adultos_r.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese el numero de adultos',
@@ -82,7 +82,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
 
     } else if (niños_r.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese el numero de niños',
@@ -93,7 +93,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
 
     } else if(mesa_r.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor selecione un tipo de mesa',
@@ -104,7 +104,7 @@ document.querySelector('#form-r').addEventListener('submit', (e)=> {
 
     } else  {
         Swal.fire({
-            imageUrl: './multimedia/Exitoso.png',
+            imageUrl: './Multimedia/Exitoso.png',
           
             text: 'Datos enviados',
         })
@@ -137,7 +137,7 @@ document.querySelector('#form-c').addEventListener('submit', (e) => {
     */
     if (nombre.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese un nombre',
@@ -146,7 +146,7 @@ document.querySelector('#form-c').addEventListener('submit', (e) => {
         document.getElementById('name').focus()
     } else if (!textov.test(nombre)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese un nombre sin numeros',
@@ -155,7 +155,7 @@ document.querySelector('#form-c').addEventListener('submit', (e) => {
     }
     else if (!regexEmail.test(email)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'El email no es valido',
@@ -165,7 +165,7 @@ document.querySelector('#form-c').addEventListener('submit', (e) => {
 
     } else if (area.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese su mensaje',
@@ -175,7 +175,7 @@ document.querySelector('#form-c').addEventListener('submit', (e) => {
     } else {
         
         Swal.fire({
-            imageUrl: './multimedia/Exitoso.png',
+            imageUrl: './Multimedia/Exitoso.png',
           
             text: 'Datos enviados',
         })

@@ -232,7 +232,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     */
     if (nombre.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese un nombre',
@@ -241,7 +241,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
         document.getElementById('name').focus()
     } else if (!textov.test(nombre)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese un nombre sin numeros',
@@ -250,7 +250,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     }
     else if (!regexEmail.test(email)) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'El email no es valido',
@@ -260,7 +260,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
 
     } else if (area.length === 0) {
         Swal.fire({
-            imageUrl: './multimedia/warning-icon.jpg',
+            imageUrl: './Multimedia/warning-icon.jpg',
             icon: '' ,
             title: 'Oops...',
             text: 'Por favor ingrese su mensaje',
@@ -270,7 +270,7 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     } else {
         
         Swal.fire({
-            imageUrl: './multimedia/Exitoso.png',
+            imageUrl: './Multimedia/Exitoso.png',
           
             text: 'Datos enviados',
         })
