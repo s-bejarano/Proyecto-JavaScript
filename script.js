@@ -1,11 +1,11 @@
-var swiper = new Swiper(".mySwiper", {
+let swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
-    spaceBetween: 30, 
+    spaceBetween: 30,
     loop: true,
-    loopFillGroupWithBlanck:true,
-    pagination : {
-        el:".swiper-pagination", 
-        clickable:true,
+    loopFillGroupWithBlanck: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
     },
     navigation: {
 
@@ -15,14 +15,14 @@ var swiper = new Swiper(".mySwiper", {
 
     breakpoints: {
 
-        0:{
-            slidesPerView:1
+        0: {
+            slidesPerView: 1
         },
         520: {
             slidesPerView: 2
 
         },
-        950 : {
+        950: {
 
             slidesPerView: 3
         }
@@ -33,7 +33,7 @@ var swiper = new Swiper(".mySwiper", {
 //carrito
 const btnCart = document.querySelector('.container-cart-icon');
 const containerCartProducts = document.querySelector(
-	'.container-cart-products'
+    '.container-cart-products'
 );
 
 const cartInfo = document.querySelector('.platillo');
@@ -48,151 +48,151 @@ const valorTotal = document.querySelector('.total-pagar');
 
 const countProducts = document.querySelector('#contador-productos');
 
-productList.addEventListener('click',e => {
+productList.addEventListener('click', e => {
 
-if(e.target.classList.contains('agregar-carrito')){
+    if (e.target.classList.contains('agregar-carrito')) {
 
-    const product = e.target.parentElement
+        const product = e.target.parentElement
 
 
-    const infoProduct = {
-        quantity: 1, 
-        imagen : product.querySelector('img').src,
-        titulo: product.querySelector('h3').textContent,
-        precio: product.querySelector('.precio').textContent,
-        id: product.querySelector('a').getAttribute('.data-id')
-        
+        const infoProduct = {
+            quantity: 1,
+            imagen: product.querySelector('img').src,
+            titulo: product.querySelector('h3').textContent,
+            precio: product.querySelector('.precio').textContent,
+            id: product.querySelector('a').getAttribute('.data-id')
 
-        
 
+
+
+        }
+        const exits = allProducts.some(product => product.titulo === infoProduct.titulo)
+
+        if (exits) {
+
+            const products = allProducts.map(product => {
+
+                if (product.titulo === infoProduct.titulo) {
+
+                    product.quantity++;
+                    return product
+                } else {
+
+                    return product
+                }
+
+            })
+            allProducts = [...products];
+
+        } else {
+
+            allProducts = [...allProducts, infoProduct];
+        }
+
+
+        showHTML();
     }
-    const exits = allProducts.some(product => product.titulo === infoProduct.titulo)
-
-    if(exits){
-
-        const products = allProducts.map(product => {
-
-            if(product.titulo === infoProduct.titulo) {
-
-                product.quantity++;
-                return product
-            } else {
-
-                return product
-            }
-
-        })
-        allProducts = [...products];
-     
-    } else {
-  
-        allProducts = [...allProducts, infoProduct];
-    }
-
-    
-    showHTML();
-}
     //console.log(allProducts)
 });
 
 
 rowProduct.addEventListener('click', e => {
-	if (e.target.classList.contains('.borrar')) {
-		const product = e.target.parentElement;
-		const title = product.querySelector('p').textContent;
+    if (e.target.classList.contains('.borrar')) {
+        const product = e.target.parentElement;
+        const title = product.querySelector('p').textContent;
 
-		allProducts = allProducts.filter(
-			product => product.title !== title
-		);
+        allProducts = allProducts.filter(
+            product => product.title !== title
+        );
 
-		console.log(allProducts);
+        console.log(allProducts);
 
-		showHTML();
-	}
+        showHTML();
+    }
 });
 
 
 
 const btnClearAll = document.querySelector('#vaciar-carrito')
 btnClearAll.addEventListener('click', () => {
-	allProducts = [];
-	showHTML()
+    allProducts = [];
+    showHTML()
 })
 
 
 
 cargarEventListeners();
 
-function cargarEventListeners(){
+function cargarEventListeners() {
 
 
 
 
     carrito.addEventListener('click', eliminarElemento);
-    
+
 
 };
 function eliminarElemento(e) {
 
- //   e.preventDefault();
-    
+    //   e.preventDefault();
+
     let elemento, elementoId;
-    
-    if(e.target.classList.contains('borrar')) {
-    
-    e.target.parentElement.parentElement.remove();
-    elemento = e.target.parentElement.parentElement;
-    elementoId = elemento.querySelector('a').getAttribute('data-id');  
-    
-    
+
+    if (e.target.classList.contains('borrar')) {
+
+        e.target.parentElement.parentElement.remove();
+        elemento = e.target.parentElement.parentElement;
+        elementoId = elemento.querySelector('a').getAttribute('data-id');
+
+        F
     }
-    
+
     eliminarElementoLocalStorage(elementoId)
-    
+
+}
+function obtenerelementosLocalStorage() {
+
+    let elementsLS;
+
+    if (localStorage.getItem('elementos') == null) {
+        elementsLS = [];
+    } else {
+
+        elementsLS = JSON.parse(localStorage.getItem('elementos'));
+
     }
-    function obtenerelementosLocalStorage() {
+    return elementsLS;
 
-        let elementsLS;
-    
-        if(localStorage.getItem('elementos') == null){
-            elementsLS = [];
-        } else {
-    
-            elementsLS = JSON.parse(localStorage.getItem('elementos'));
-    
-        }
-        return elementsLS;
-        
-    
-    };
-    function eliminarElementoLocalStorage(elemento){
 
-        let elementosLS;
-    
-        elementosLS = obtenerelementosLocalStorage();
-        elementosLS.forEach(function(elementosLS,index){
-    
-            if(elementosLS.id === elemento) {
-            
+};
+function eliminarElementoLocalStorage(elemento) {
+
+    let elementosLS;
+
+    elementosLS = obtenerelementosLocalStorage();
+    elementosLS.forEach(function (elementosLS, index) {
+
+        if (elementosLS.id === elemento) {
+
             elementosLS.splice(index, 1);
-            
-            }
-            
-            });
-            localStorage.setItem('elementos', JSON.stringify(elementosLS));
-            
-    };
+
+        }
+
+    });
+    localStorage.setItem('elementos', JSON.stringify(elementosLS));
+
+};
 const showHTML = () => {
 
-rowProduct.innerHTML = '';    
-let total = 0;
-let totalOfProducts = 0;
-allProducts.forEach(product =>{
+    rowProduct.innerHTML = '';
+    let total = 0;
+    let totalOfProducts = 0;
+    allProducts.forEach(product => {
 
-    const containerProduct  = document.createElement('div');
-    containerProduct.classList.add('agregar-carrito')
+        const containerProduct = document.createElement('div');
+        containerProduct.classList.add('agregar-carrito')
 
-    containerProduct.innerHTML = `
+        containerProduct.innerHTML = `
 
     <div class="platillo">
     <span class="cantidad-producto-carrito">${product.quantity}</</span>
@@ -205,52 +205,57 @@ allProducts.forEach(product =>{
   
    </div>
     `
-    rowProduct.append(containerProduct);
+        rowProduct.append(containerProduct);
 
-    total = total + parseFloat(product.quantity * product.precio.slice(1));
-    totalOfProducts = totalOfProducts + product.quantity;
-});
+        total = total + parseFloat(product.quantity * product.precio.slice(1));
+        totalOfProducts = totalOfProducts + product.quantity;
+    });
 
-valorTotal.innerText = `$${total}00`;
-countProducts.innerText = totalOfProducts;
+    valorTotal.innerText = `$${total}00`;
+    countProducts.innerText = totalOfProducts;
 
 };
 
-//FUNCION VALIDAR FORMULARIO
+//FUNCION VALIDAR FORMULARIO DE CONTACTO
 
 
-document.querySelector('#form').addEventListener('submit',(e)=>{
+document.querySelector('#form').addEventListener('submit', (e) => {
 
     e.preventDefault();
-const nombre = document.getElementById('name').value
-const email = document.getElementById('email').value
-const area = document.getElementById('area').value
-const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
-const formu = document.getElementById('form')
+    const nombre = document.getElementById('name').value
+    const email = document.getElementById('email').value
+    const area = document.getElementById('area').value
+    const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+    const formu = document.getElementById('form')
+    const textov = /^[A-Z]+$/i
+    /*
+    e.target.elements.name.value = "";
+    e.target.elements.email.value = "";
+    e.target.elements.area.value = "";
+    */
+    if (nombre.length === 0) {
 
-/*
-e.target.elements.name.value = "";
-e.target.elements.email.value = "";
-e.target.elements.area.value = "";
-*/ 
-if(nombre.length === 0) {
+        alert("por favor ingrese un nombre");
+        document.getElementById('name').focus()
+    } else if (!textov.test(nombre)) {
 
-alert("por favor ingrese un nombre");
-document.getElementById('name').focus()
-}
-else if (!regexEmail.test(email)) {
+        alert("por favor ingrese un nombre sin numeros");
+    }
+    else if (!regexEmail.test(email)) {
 
-alert("el email no es valido")
-document.getElementById('email').focus()
+        alert("el email no es valido")
+        document.getElementById('email').focus()
 
-} else if (area.length === 0) {
+    } else if (area.length === 0) {
 
-    alert("por favor ingrese su mensaje")
-    document.getElementById('area').focus()
-} else {
+        alert("por favor ingrese su mensaje")
+        document.getElementById('area').focus()
+    } else {
 
-    alert("datos enviados")
-    formu.reset();
-}
+        alert("datos enviados")
+        formu.reset();
+    }
 
 });
+
+
