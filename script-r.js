@@ -1,7 +1,7 @@
 Swal.fire({
     imageUrl: './Multimedia/reservas.png',
     icon: '' ,
-    title: 'Tipos de mesas para serserva',
+    title: 'Tipos de mesas para reserva',
     text: 'Recuerde esta imagen al momento de su eleccion',
 })
 //VALIDACION FORMULARIO DE RESERVA
