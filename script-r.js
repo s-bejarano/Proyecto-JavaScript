@@ -149,7 +149,7 @@ async function handleSubmit(event) {
             imageUrl: './Multimedia/warning-icon.jpg',
             icon: '',
             title: 'Oops...',
-            text: 'Por favor ingrese un nombre sin numeros',
+            text: 'Por favor ingrese un nombre sin numeros,espacios o caracteres especiales',
         })
         document.getElementById('name').focus()
     }
