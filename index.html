@@ -16,12 +16,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 
     <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="./librerias/sweetalert2.min.css">  
+    <link rel="stylesheet" href="./librerias/sweetalert2.min.css">
 
     <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script defer src="./librerias/sweetalert2.all.min.js"></script>
 
-      <script defer src="./script.js"> </script>
+    <script defer src="./script.js"> </script>
+    </script>
+    <script defer src="./script.js"> </script>
     <title></title>
 </head>
 
@@ -267,14 +269,19 @@
             <div class="link">
                 <a name="contacto"></a>
                 <h3>Contacto</h3>
-                <form action="" id="form" method="post" class="form">
-                    <input type="text" placeholder="Nombre" id="name" class="inp name">
-                    <input type="email" placeholder="Email" id="email" class="inp">
-                    <textarea class="inp" id="area"></textarea>
-                    <!--<input class="btn-4" type="submit" value="Enviar">-->
-                    <button class="btn-4" type="submit" value="Enviar">Enviar</button>
+                <form id="my-form" action="https://formspree.io/f/xeqwreov" method="POST">
+                    <label>Nombre</label>
+                    <input type="text" name="name" class="inp" id="name">
+                    <label>Email:</label>
+                    <input type="email" name="email" class="inp" id="email" />
+                    <label>Mensaje:</label>
+                    <textarea type="text" name="message" class="inp" id="area"></textarea>
+                    <button class="btn-4" id="my-form-button">Enviar</button>
+                    <p id="my-form-status"></p>
                 </form>
             </div>
+
+
 
         </div>
 

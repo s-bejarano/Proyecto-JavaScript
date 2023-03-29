@@ -718,13 +718,15 @@ input::-moz-focus-inner {
 
 .canv {
 
-    width:50%; height:80%; margin:0 auto;
-    
+    width: 50%;
+    height: 80%;
+    margin: 0 auto;
+
 }
 
-#reserv{    width: 80%; 
+#reserv {
+    width: 80%;
     padding-top: 10%;
     padding-left: 15%;
 
 }
-

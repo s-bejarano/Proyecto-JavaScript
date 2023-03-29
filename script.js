@@ -216,33 +216,37 @@ const showHTML = () => {
 
 };
 
-document.querySelector('#form').addEventListener('submit', (e) => {
 
-    e.preventDefault();
+//IMPLEMENTACION DE API Y VALIDACIONES EN FORMULARIO
+var form = document.getElementById("my-form");
+async function handleSubmit(event) {
+
+
+
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+
     const nombre = document.getElementById('name').value
     const email = document.getElementById('email').value
     const area = document.getElementById('area').value
     const regexEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
     const formu_c = document.getElementById('form')
     const textov = /^[A-Z]+$/i
-    /*
-    e.target.elements.name.value = "";
-    e.target.elements.email.value = "";
-    e.target.elements.area.value = "";
-    */
+
     if (nombre.length === 0) {
         Swal.fire({
             imageUrl: './Multimedia/warning-icon.jpg',
-            icon: '' ,
+            icon: '',
             title: 'Oops...',
             text: 'Por favor ingrese un nombre',
         })
-   
+
         document.getElementById('name').focus()
     } else if (!textov.test(nombre)) {
         Swal.fire({
             imageUrl: './Multimedia/warning-icon.jpg',
-            icon: '' ,
+            icon: '',
             title: 'Oops...',
             text: 'Por favor ingrese un nombre sin numeros',
         })
@@ -251,32 +255,58 @@ document.querySelector('#form').addEventListener('submit', (e) => {
     else if (!regexEmail.test(email)) {
         Swal.fire({
             imageUrl: './Multimedia/warning-icon.jpg',
-            icon: '' ,
+            icon: '',
             title: 'Oops...',
             text: 'El email no es valido',
         })
-        
+
         document.getElementById('email').focus()
 
     } else if (area.length === 0) {
         Swal.fire({
             imageUrl: './Multimedia/warning-icon.jpg',
-            icon: '' ,
+            icon: '',
             title: 'Oops...',
             text: 'Por favor ingrese su mensaje',
         })
-       
+
         document.getElementById('area').focus()
     } else {
-        
-        Swal.fire({
-            imageUrl: './Multimedia/Exitoso.png',
-          
-            text: 'Datos enviados',
-        })
-        formu_c.reset();
+
+
+        fetch(event.target.action, {
+            method: form.method,
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                Swal.fire({
+                    imageUrl: './Multimedia/Exitoso.png',
+
+                    text: 'Datos enviados',
+                })
+                status.innerHTML = "Gracias por su envio!";
+                form.reset()
+            } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                        status.innerHTML = "Oops! There was a problem submitting your form"
+                    }
+                })
+            }
+        }).catch(error => {
+
+            status.innerHTML = "Oops! There was a problem submitting your form"
+        });
+
+
     }
 
-});
 
+}
 
+form.addEventListener("submit", handleSubmit)
